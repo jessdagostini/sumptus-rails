@@ -36,6 +36,10 @@ gem 'twitter-bootstrap-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use devise for auth
+gem 'devise'
+gem 'devise-i18n-views'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,8 +1,8 @@
 class OutlaysController < ApplicationController
-	# Criar actions edit, update, delete, area (para mostrar somente gastos da area) e
-	# payform (para mostrar gastos com tal pagamento)
+	before_action :authenticate_user!
+
 	def index
-		@outlays = Outlay.order :id
+		@outlays = Outlay.where(:user_id => current_user.id)
 	end
 
 	def new
@@ -15,6 +15,7 @@ class OutlaysController < ApplicationController
 
 	def create
 		@outlay = Outlay.new(outlay_params)
+		@outlay.user_id = current_user.id
 
 		if @outlay.save
       		redirect_to outlay_path(@outlay), notice: 'Comentário criado com sucesso.'

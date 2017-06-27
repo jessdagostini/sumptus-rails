@@ -1,4 +1,6 @@
 class PayformsController < ApplicationController
+	before_action :authenticate_user!
+	
 	def index
 		@payforms = Payform.order :id
 	end

@@ -4,23 +4,28 @@
 	<% end %>
 
 	<div class="form-group">
+	    <%= f.label :user %>
+	    <input class="form-control" id="disabledInput" type="text" placeholder="<%= current_user.email %>" disabled>
+	</div>
+
+	<div class="form-group">
 	    <%= f.label :area %>
-	    <%= f.collection_select :area_id, @areas, :id, :area %>
+	    <%= f.collection_select :area_id, @areas, :id, :area, {prompt: "Selectiona uma área"}, {class: "form-control"} %>
 	</div>
 
 	<div class="form-group">
 	    <%= f.label :payform %>
-	    <%= f.collection_select :payform_id, @payforms, :id, :form %>
+	    <%= f.collection_select :payform_id, @payforms, :id, :form, {prompt: "Selecione um pagamento"}, {class: "form-control"} %>
 	</div>
 
 	<div class="form-group">
 	    <%= f.label :description %>
-	    <%= f.text_area :description%>
+	    <%= f.text_area :description, {class: "form-control"}%>
 	</div>
 
 	<div class="form-group">
 	    <%= f.label :Custo %>
-	    <%= f.text_field :cost%>
+	    <%= f.text_field :cost, {class: "form-control", type: "number"}%>
 	</div>
     	<%= f.submit "Gravar", class: "btn btn-primary" %>
 	</div>
