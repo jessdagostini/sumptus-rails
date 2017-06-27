@@ -1,0 +1,12 @@
+<%= form_for @payform do |f| %>
+	<% @payform.errors.full_messages.each do |erro| %>
+    	<div class="alert alert-danger" role="alert"><%= erro %></div>
+	<% end %>
+
+	<div class="form-group">
+	    <%= f.label :form %>
+	    <%= f.text_field :form, class: "form-control" %>
+	</div>
+
+    <%= f.submit "Gravar", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,12 @@
+<%= form_for @area do |f| %>
+	<% @area.errors.full_messages.each do |erro| %>
+		<div class="alert alert-danger" role="alert"><%= erro %></div>
+	<% end %>
+
+	<div class="form-group">
+		<%= f.label :area %>
+		<%= f.text_field :area, class: "form-control" %>
+	</div>
+
+	<%= f.submit "Salvar", class: "btn btn-primary" %>
+<% end %>

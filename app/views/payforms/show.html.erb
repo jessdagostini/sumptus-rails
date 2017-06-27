@@ -1,0 +1,35 @@
+<h1>Despesas pagas com <%= @payform.form %></h1>                    
+
+<table class="table table-striped table-condensed"> <!-- table-condensed -->
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Área</th>
+            <th>Pagamento</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th><span class="pull-right">Opções</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @payform.outlays.each do |outlay| %>
+        <tr>
+            <td><%= outlay.id %></td>
+            <td><%= outlay.area.area %></td>
+            <td><%= outlay.payform.form %></td>
+            <td><%= outlay.description %></td>
+            <td><%= outlay.cost %></td>            
+            <td><span class="pull-right">
+                <%= link_to "Ver", outlay_path(outlay) %>
+                 |        
+                <%= link_to " Editar", edit_outlay_path(outlay) %>
+                 | 
+                <%= link_to " Deletar", edit_outlay_path(outlay) %>
+                </span>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<button class="btn btn-default pull-right"><%= link_to "Voltar", payforms_path %></button>
+
