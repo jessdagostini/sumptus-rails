@@ -27,6 +27,12 @@
 	    <%= f.label :Custo %>
 	    <%= f.text_field :cost, {class: "form-control", type: "number"}%>
 	</div>
+
+	<div class="form-group">
+		<%= f.label :Data %>
+		<%= f.date_field :payment_day, {class: "form-control"}%>
+	</div>
     	<%= f.submit "Gravar", class: "btn btn-primary" %>
+    	<%= link_to "Voltar", outlays_path, class: "btn btn-default"%>
 	</div>
 <% end %>

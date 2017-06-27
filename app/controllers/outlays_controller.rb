@@ -34,6 +34,6 @@ class OutlaysController < ApplicationController
 	end
 
 	def outlay_params
-      params.require(:outlay).permit(:area_id, :payform_id, :description, :cost)
+      params.require(:outlay).permit(:area_id, :payform_id, :description, :cost, :payment_day)
     end
 end
