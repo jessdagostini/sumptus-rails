@@ -1,6 +1,16 @@
 <h1>Relatório</h1>
-<h3 class="pull-center">Áreas</p>
+<h3 class="pull-center">Áreas</h3>
 <%= pie_chart @outlays.group(:area_id).count %>
+<p>Legenda:
+<% @areas.each do |area|%>
+<%= area.id %> - <%=area.area%> | 
+<% end %>
+</p>
 
-<h3 class="pull-center">Formas de Pagamento</p>
-<%= pie_chart @outlays.group(:payform_id).count %>
+<h3 class="pull-center">Formas de Pagamento</h3>
+<%= pie_chart @outlays.group(:payform_id).count%>
+<p>Legenda:
+<% @payforms.each do |payform|%>
+<%= payform.id %> - <%=payform.form%> | 
+<% end %>
+</p>

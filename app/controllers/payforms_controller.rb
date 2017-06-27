@@ -13,9 +13,11 @@ class PayformsController < ApplicationController
 		@payform = Payform.new(payform_params)
 
 		if @payform.save
-			redirect_to payforms_path, notice: 'Pagamento criado com sucesso.'
+			flash[:notice] = "Pagamento criado com sucesso."
+			redirect_to payforms_path
 		else
-			redirect_to new_payform_path, notice: "Erro ao gravar o pagamento :#{@payform.errors.full_messages.join}"
+			flash[:notice] =  "Erro ao gravar o pagamento :#{@payform.errors.full_messages.join}"
+			redirect_to new_payform_path
 		end
 	end
 
@@ -27,7 +29,7 @@ class PayformsController < ApplicationController
 		busca_payform
 		valores = payform_params
 		if @payform.update(valores)
-  			flash[:notice] = "Produto atualizado com sucesso"
+  			flash[:notice] = "Pagamento atualizado com sucesso"
   			redirect_to payforms_path
 		else
   			#render action: "edit"
@@ -37,8 +39,10 @@ class PayformsController < ApplicationController
 
 	def destroy
 	    id = params[:id]
-	    Payform.destroy id
-	    redirect_to payforms_path
+	    if Payform.destroy id
+	    	flash[:notice] = "Pagamento deletado"
+	    	redirect_to payforms_path
+	    end
 	end
 
 	def show

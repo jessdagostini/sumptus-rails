@@ -13,9 +13,11 @@ class AreasController < ApplicationController
 		@area = Area.new(area_params)
 
 		if @area.save
-			redirect_to areas_path, notice: 'Pagamento criado com sucesso.'
+			flash[:notice] = "Área criada com sucesso"
+			redirect_to areas_path
 		else
-			redirect_to new_area_path, notice: "Erro ao gravar o pagamento :#{@area.errors.full_messages.join}"
+			flash[:notice] = "Erro ao gravar área :#{@area.errors.full_messages.join}"
+			redirect_to new_area_path
 		end
 	end
 
@@ -27,7 +29,7 @@ class AreasController < ApplicationController
 		busca_area
 		valores = area_params
 		if @area.update(valores)
-  			flash[:notice] = "Produto atualizado com sucesso"
+  			flash[:notice] = "Área atualizada com sucesso"
   			redirect_to areas_path
 		else
   			#render action: "edit"
@@ -37,8 +39,10 @@ class AreasController < ApplicationController
 
 	def destroy
 	    id = params[:id]
-	    Area.destroy id
-	    redirect_to areas_path
+	    if Area.destroy id
+	    	flash[:notice] = "Área deletada"
+	    	redirect_to areas_path
+	    end
 	end
 
 	def show
