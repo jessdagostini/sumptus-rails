@@ -40,6 +40,10 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-i18n-views'
 
+# Use chartick for charts
+gem 'chartkick'
+gem "highcharts-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

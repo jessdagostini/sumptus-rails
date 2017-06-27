@@ -1,0 +1,6 @@
+<h1>Relatório</h1>
+<h3 class="pull-center">Áreas</p>
+<%= pie_chart @outlays.group(:area_id).count %>
+
+<h3 class="pull-center">Formas de Pagamento</p>
+<%= pie_chart @outlays.group(:payform_id).count %>

@@ -22,6 +22,7 @@
         <li><%= link_to "Despesas", outlays_path %></li>
         <li><%= link_to "Formas de Pagamento", payforms_path %></li>
         <li><%= link_to "Áreas", areas_path %></li>
+        <% if user_signed_in? %><li><%= link_to "Relatório", controller: 'outlays', action: 'relatorio' %></li><% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>

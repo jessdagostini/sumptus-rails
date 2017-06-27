@@ -23,8 +23,6 @@
             <td><%= outlay.payment_day %></td>
             <td><%= outlay.cost %></td>            
             <td><span class="pull-right">
-                <%= link_to "Ver", outlay_path(outlay) %>
-                 |        
                 <%= link_to " Editar", edit_outlay_path(outlay) %>
                  | 
                 <%= link_to " Deletar", edit_outlay_path(outlay) %>
@@ -34,4 +32,3 @@
         <% end %>
     </tbody>
 </table>
-

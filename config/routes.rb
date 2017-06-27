@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   	resources :outlays
   end
 
+  match 'relatorio', controller: 'outlays', action: 'relatorio', via: 'get'
+
   root "outlays#index"
 end

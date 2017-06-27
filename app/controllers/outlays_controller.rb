@@ -23,14 +23,14 @@ class OutlaysController < ApplicationController
       		redirect_to outlay_path(:new), notice: "Erro ao gravar o comentário :#{@outlay.errors.full_messages.join}"
     	end
 	end
-
-	def show
+	
+	def relatorio
 		search_outlays
 	end
 
 	private
 	def search_outlays
-		@outlay = Outlay.find(params[:id])
+		@outlays = Outlay.where(:user_id => current_user.id)
 	end
 
 	def outlay_params
