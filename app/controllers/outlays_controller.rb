@@ -64,7 +64,7 @@ class OutlaysController < ApplicationController
 	end
 
 	def search_outlay
-		@outlay = Outlay.find(params[:id], :joins => :areas)
+		@outlay = Outlay.find(params[:id])
 	end
 
 	def outlay_params
