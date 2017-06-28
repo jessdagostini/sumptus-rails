@@ -2,7 +2,7 @@ class OutlaysController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@outlays = Outlay.where(:user_id => current_user.id)
+		search_outlays
 	end
 
 	def new
@@ -20,7 +20,7 @@ class OutlaysController < ApplicationController
 		if @outlay.save
       		redirect_to outlays_path, notice: 'Despesa cadastrada com sucesso.'
     	else
-      		redirect_to outlay_path(:new), notice: "Erro ao gravar despesa :#{@outlay.errors.full_messages.join}"
+      		redirect_to outlay_path(:new), notice: "Erro ao cadastrar despesa :#{@outlay.errors.full_messages.join}"
     	end
 	end
 
@@ -39,7 +39,6 @@ class OutlaysController < ApplicationController
   			flash[:notice] = "Despesa atualizada com sucesso"
   			redirect_to outlays_path
 		else
-  			#render action: "edit"
   			render :edit
 		end
 	end

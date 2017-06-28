@@ -57,6 +57,4 @@ class AreasController < ApplicationController
 	def area_params
       params.require(:area).permit(:area)
     end
-
-	# Criar as actions new, create, edit, update e delete
 end
